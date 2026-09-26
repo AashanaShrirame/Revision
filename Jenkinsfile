@@ -61,10 +61,10 @@ Every Monday at 6 AM	H 6 * * 1*/
 
     post {
         success {
-            echo 'Build succeeded!'
+            echo 'Test execution succeeded!'
         }
         failure {
-            echo 'Build failed — check console output.'
+            echo 'Test execution failed — check console output.'
         }
     }
 }

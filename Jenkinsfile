@@ -9,7 +9,7 @@ Every weekday at 9 AM	H 9 * * 1-5
 Every Monday at 6 AM	H 6 * * 1*/
 
     triggers { 
-		cron('H /15 * * * *') // runs after each 15 min
+		cron('H/15 * * * *') // runs after each 15 min
 	}
 
     tools {

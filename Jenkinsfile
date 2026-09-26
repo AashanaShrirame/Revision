@@ -1,6 +1,17 @@
 pipeline {
     agent any
 
+ /*  Schedule	Cron expression
+Every day at 2 AM	H 2 * * *
+Every hour	H * * * *
+Every 15 minutes	H/15 * * * *
+Every weekday at 9 AM	H 9 * * 1-5
+Every Monday at 6 AM	H 6 * * 1*/
+
+    triggers { 
+		cron('H /15 * * * *') // runs after each 15 min
+	}
+
     tools {
         maven 'mymaven'   // Name must match what you configured in Manage Jenkins > Tools
         jdk 'myjava'      // Same here

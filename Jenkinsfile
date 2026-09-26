@@ -8,6 +8,36 @@ Every 15 minutes	H/15 * * * *
 Every weekday at 9 AM	H 9 * * 1-5
 Every Monday at 6 AM	H 6 * * 1*/
 
+   
+    parameters {
+        choice(
+            name: 'ENVIRONMENT',
+            choices: ['dev', 'staging', 'prod'],
+            description: 'Select the environment to run tests against'
+        )
+        choice(
+            name: 'BROWSER',
+            choices: ['chrome', 'firefox', 'edge'],
+            description: 'Select browser for Selenium execution'
+        )
+        string(
+            name: 'BRANCH_NAME',
+            defaultValue: 'main',
+            description: 'Git branch to checkout'
+        )
+        booleanParam(
+            name: 'SKIP_TESTS',
+            defaultValue: false,
+            description: 'Check to skip test execution'
+        )
+        text(
+            name: 'RELEASE_NOTES',
+            defaultValue: '',
+            description: 'Optional release notes for this build'
+        )
+
+    }
+
     triggers { 
 		cron('H/15 * * * *') // runs after each 15 min
 	}
